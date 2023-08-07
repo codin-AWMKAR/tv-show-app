@@ -1,0 +1,24 @@
+/* ShowDetails.css */
+.show-details-dabba {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    flex-direction: row;
+}
+
+.show-card {
+    width: 100%;
+    max-width: 400px; /* Adjust the width as needed */
+    margin: auto;
+    text-align: center;
+}
+
+.show-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.summary {
+    margin-top: 20px;
+    text-align: justify;
+}

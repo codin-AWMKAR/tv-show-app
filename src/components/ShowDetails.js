@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
+import { Card, Button } from 'react-bootstrap';
 
 const ShowDetails = () => {
   const { showId } = useParams();
@@ -14,18 +15,19 @@ const ShowDetails = () => {
   }, [showId]);
 
   return (
-    <div className="show-details">
+    <div className="show-detail-dabba">
       {show && (
-        <div>
-          <h1>Show Details</h1>
-          <h2>{show.name}</h2>
-          <img src={show.image.medium} alt={show.name} />
-          <p dangerouslySetInnerHTML={{ __html: show.summary }} />
-          <p>Language: {show.language}</p>
-          <p>Genre: {show.genres.join(', ')}</p>
-          {show.rating && <p>Rating: {show.rating.average}</p>}
-          <Link to={`/form/${showId}`}>Book Ticket</Link>
-        </div>
+        <Card>
+          <Card.Img variant="top" src={show.image.medium} alt={show.name} />
+          <Card.Body>
+            <Card.Title>{show.name}</Card.Title>
+            <p dangerouslySetInnerHTML={{ __html: show.summary }} />
+            <Card.Text>Language: {show.language}</Card.Text>
+            <Card.Text>Genres: {show.genres.join(', ')}</Card.Text>
+            <Card.Text>Rating: {show.rating.average}</Card.Text>
+            <Button variant="primary" href={`/form/${showId}`} > Book Ticket</Button>
+          </Card.Body>
+        </Card>
       )}
     </div>
   );

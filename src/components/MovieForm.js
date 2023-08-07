@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import './MovieForm.css';
+import { Form, Button } from 'react-bootstrap';
 
 const MovieForm = () => {
   const { showId } = useParams();
@@ -46,21 +48,38 @@ const MovieForm = () => {
           <p>Language: {show.language}</p>
           <p>Genres: {show.genres.join(', ')}</p>
           <p>Rating: {show.rating.average}</p>
-          <form onSubmit={handleFormSubmit}>
-            <div className="form-group">
-              <label>Name:</label>
-              <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-            </div>
-            <div className="form-group">
-              <label>Email:</label>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </div>
-            <div className="form-group">
-              <label>Phone Number:</label>
-              <input type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
-            </div>
-            <button type="submit">Book Ticket</button>
-          </form>
+          <Form onSubmit={handleFormSubmit}>
+        <Form.Group className="mb-3">
+          <Form.Label>Name:</Form.Label>
+          <Form.Control
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Email:</Form.Label>
+          <Form.Control
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Phone Number:</Form.Label>
+          <Form.Control
+            type="tel"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            required
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Book Ticket
+        </Button>
+      </Form>
         </div>
       )}
     </div>
