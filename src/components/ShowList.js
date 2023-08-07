@@ -19,21 +19,29 @@ const ShowList = () => {
 
   return (
     <div className="show-list-container">
-      <h1>Show List</h1>
+      {/* Show List Heading */}
+      <h1 className="show-list-heading">Show List</h1>
       <div className="row">
+        {/* Map through shows */}
         {shows.map(({ show }) => (
           <div className="col-md-4 mb-4" key={show.id}>
             <Card>
+              {/* Show image */}
               <Card.Img
                 variant="top"
                 src={show.image && show.image.medium ? show.image.medium : defaultImageUrl}
                 alt={show.name}
               />
               <Card.Body>
+                {/* Show title */}
                 <Card.Title>{show.name}</Card.Title>
+                {/* Show language */}
                 <Card.Text>Language: {show.language}</Card.Text>
+                {/* Show genres */}
                 <Card.Text>Genres: {show.genres.join(', ')}</Card.Text>
+                {/* Show rating */}
                 <Card.Text>Rating: {show.rating.average}</Card.Text>
+                {/* Link to show details */}
                 <Link to={`/details/${show.id}`}>
                   <Button variant="primary">View Details</Button>
                 </Link>

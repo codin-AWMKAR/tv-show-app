@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './MovieForm.css';
+import './MovieForm.css'; // Import your custom CSS for styling
 import { Form, Button } from 'react-bootstrap';
 
 const MovieForm = () => {
@@ -43,43 +43,50 @@ const MovieForm = () => {
     <div className="movie-form">
       {show && (
         <div>
-          <h2>Book a Ticket for {show.name}</h2>
-          <img src={show.image.medium} alt={show.name} />
-          <p>Language: {show.language}</p>
-          <p>Genres: {show.genres.join(', ')}</p>
-          <p>Rating: {show.rating.average}</p>
+          {/* Form Header */}
+          <h2 className="form-header">Book a Ticket for {show.name}</h2>
+          
+          {/* Show Details */}
+          <div className="show-details">
+            <img className="show-image" src={show.image.medium} alt={show.name} />
+            <p>Language: {show.language}</p>
+            <p>Genres: {show.genres.join(', ')}</p>
+            <p>Rating: {show.rating.average}</p>
+          </div>
+          
+          {/* Booking Form */}
           <Form onSubmit={handleFormSubmit}>
-        <Form.Group className="mb-3">
-          <Form.Label>Name:</Form.Label>
-          <Form.Control
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Email:</Form.Label>
-          <Form.Control
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Phone Number:</Form.Label>
-          <Form.Control
-            type="tel"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Book Ticket
-        </Button>
-      </Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Name:</Form.Label>
+              <Form.Control
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Phone Number:</Form.Label>
+              <Form.Control
+                type="tel"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Book Ticket
+            </Button>
+          </Form>
         </div>
       )}
     </div>

@@ -1,72 +1,77 @@
-/* ShowList.css */
+
+
+
+
+.show-list-container {
+  text-align: center;
+}
+
+.show-list-heading {
+  margin-bottom: 20px;
+}
 
 .card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .card-text {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  .show-list-container {
-    margin: 20px;
-    flex-direction: column;
-  }
-  
-  /* .row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  } */
-  
-  .col-md-4 {
-    flex: 1;
-    max-width: calc(33.33% - 20px);
-  }
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: transform 0.3s;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card-img-top {
-    height: 700px;
-    object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-  
-  .card-body {
-    padding: 1rem;
-  }
-  
-  .card-title {
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .card-text {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.show-list-container {
+  margin: 20px;
+  flex-direction: column;
+}
+
+.col-md-4 {
+  flex: 1;
+  max-width: calc(33.33% - 20px);
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  height: 700px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}

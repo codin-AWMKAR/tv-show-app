@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams,Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
+import "./ShowDetails.css";
 
 const ShowDetails = () => {
   const { showId } = useParams();
@@ -17,17 +18,33 @@ const ShowDetails = () => {
   return (
     <div className="show-detail-dabba">
       {show && (
-        <Card>
-          <Card.Img variant="top" src={show.image.medium} alt={show.name} />
-          <Card.Body>
-            <Card.Title>{show.name}</Card.Title>
-            <p dangerouslySetInnerHTML={{ __html: show.summary }} />
-            <Card.Text>Language: {show.language}</Card.Text>
-            <Card.Text>Genres: {show.genres.join(', ')}</Card.Text>
-            <Card.Text>Rating: {show.rating.average}</Card.Text>
-            <Button variant="primary" href={`/form/${showId}`} > Book Ticket</Button>
-          </Card.Body>
-        </Card>
+        <div className="row">
+          <div className="col-md-6">
+            {/* Display show image */}
+            <Card>
+              <Card.Img variant="top" src={show.image.medium} alt={show.name} />
+            </Card>
+          </div>
+          <div className="col-md-6">
+            <Card.Body>
+              <h1>Show Details</h1>
+              {/* Display show name */}
+              <Card.Title>{show.name}</Card.Title>
+              <div className="summary">
+                {/* Display show summary */}
+                <p className="summary-text" dangerouslySetInnerHTML={{ __html: show.summary }} />
+              </div>
+              {/* Display show language, genres, and rating */}
+              <Card.Text>Language: {show.language}</Card.Text>
+              <Card.Text>Genres: {show.genres.join(', ')}</Card.Text>
+              <Card.Text>Rating: {show.rating.average}</Card.Text>
+              {/* Link to the booking form */}
+              <Button variant="primary">
+                <Link to={`/form/${showId}`} className="text-white">Book Ticket</Link>
+              </Button>
+            </Card.Body>
+          </div>
+        </div>
       )}
     </div>
   );

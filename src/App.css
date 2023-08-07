@@ -1,5 +1,9 @@
+body, html {
+  height: 100%;
+}
 .App {
   text-align: center;
+  overflow: hidden; 
 }
 
 .App-logo {
