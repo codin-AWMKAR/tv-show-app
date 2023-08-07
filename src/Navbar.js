@@ -3,9 +3,9 @@ import React from 'react';
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-     
-      <strong>ShowTime</strong>
-     
+      <a className="navbar-brand text-white mx-auto" href="/" >
+        <strong>ShowTime</strong>
+      </a>
       <button
         className="navbar-toggler"
         type="button"

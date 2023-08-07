@@ -1,6 +1,11 @@
 /* ShowDetails.css */
-.show-detail-dabba {
-    margin: 60px auto; 
+
+.body {
+    overflow-x: hidden;
+  }
+  
+  .show-detail-dabba {
+    margin: 60px auto;
   }
   
   .row {
@@ -10,13 +15,13 @@
   
   .col-md-6 {
     flex: 1;
-    max-width: 50%;
+    max-width: 80%; /* Adjust the width as needed */
     padding: 0 10px;
   }
   
   .summary {
     margin-top: 20px;
-    width: 100%;
+    width: 80%;
   }
   
   .summary-text {
@@ -32,5 +37,10 @@
     width: 100%;
     max-height: 900px;
     object-fit: cover;
+  }
+  
+  .card-body {
+    width: 80%;
+    margin: 0 auto;
   }
   
