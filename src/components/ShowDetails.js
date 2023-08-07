@@ -21,6 +21,9 @@ const ShowDetails = () => {
           <h2>{show.name}</h2>
           <img src={show.image.medium} alt={show.name} />
           <p dangerouslySetInnerHTML={{ __html: show.summary }} />
+          <p>Language: {show.language}</p>
+          <p>Genre: {show.genres.join(', ')}</p>
+          {show.rating && <p>Rating: {show.rating.average}</p>}
           <Link to={`/form/${showId}`}>Book Ticket</Link>
         </div>
       )}
