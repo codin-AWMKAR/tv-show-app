@@ -15,37 +15,42 @@ const ShowDetails = () => {
       .catch(error => console.error('Error fetching show details:', error));
   }, [showId]);
 
+  // Check if the show object is not yet available
+  if (!show) {
+    return <div>Loading...</div>;
+  }
+  const defaultImageUrl = 'https://media.comicbook.com/files/img/default-movie.png';
+
   return (
     <div className="show-detail-dabba">
-      {show && (
-        <div className="row">
-          <div className="col-md-6">
-            {/* Display show image */}
-            <Card>
-              <Card.Img variant="top" src={show.image.medium} alt={show.name} />
-            </Card>
-          </div>
-          <div className="col-md-6">
-            <Card.Body>
-              <h1>Show Details</h1>
-              {/* Display show name */}
-              <Card.Title>{show.name}</Card.Title>
-              <div className="summary">
-                {/* Display show summary */}
-                <p className="summary-text" dangerouslySetInnerHTML={{ __html: show.summary }} />
-              </div>
-              {/* Display show language, genres, and rating */}
-              <Card.Text>Language: {show.language}</Card.Text>
-              <Card.Text>Genres: {show.genres.join(', ')}</Card.Text>
-              <Card.Text>Rating: {show.rating.average}</Card.Text>
-              {/* Link to the booking form */}
-              <Button variant="primary">
-                <Link to={`/form/${showId}`} className="text-white">Book Ticket</Link>
-              </Button>
-            </Card.Body>
-          </div>
+      <div className="row">
+        <div className="col-md-6">
+          <Card>
+            {show.image && show.image.medium && (
+               <Card.Img
+               variant="top"
+               src={show.image && show.image.medium ? show.image.medium : defaultImageUrl}
+               alt={show.name}
+             />
+            )}
+          </Card>
         </div>
-      )}
+        <div className="col-md-6">
+          <Card.Body>
+            <h1>Show Details</h1>
+            <Card.Title>{show.name}</Card.Title>
+            <div className="summary">
+              <p className="summary-text" dangerouslySetInnerHTML={{ __html: show.summary }} />
+            </div>
+            <Card.Text>Language: {show.language}</Card.Text>
+            <Card.Text>Genres: {show.genres.join(', ')}</Card.Text>
+            <Card.Text>Rating: {show.rating.average}</Card.Text>
+            <Button variant="primary">
+              <Link to={`/form/${showId}`} className="text-white">Book Ticket</Link>
+            </Button>
+          </Card.Body>
+        </div>
+      </div>
     </div>
   );
 };

@@ -28,4 +28,24 @@
     margin-top: 20px;
     text-align: center;
   }
+  .movie-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px; 
+  }
+  
+ 
+  .movie-form img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Add media query for smaller screens */
+  @media (max-width: 768px) {
+    .movie-form img {
+      max-width: 80%; /* Reduce image width on smaller screens */
+    }
+  }
   

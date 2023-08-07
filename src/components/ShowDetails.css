@@ -1,11 +1,13 @@
 /* ShowDetails.css */
 
+/* Common styles */
 .body {
     overflow-x: hidden;
   }
   
   .show-detail-dabba {
     margin: 60px auto;
+    padding: 20px;
   }
   
   .row {
@@ -15,17 +17,8 @@
   
   .col-md-6 {
     flex: 1;
-    max-width: 80%; /* Adjust the width as needed */
+    max-width: 80%;
     padding: 0 10px;
-  }
-  
-  .summary {
-    margin-top: 20px;
-    width: 80%;
-  }
-  
-  .summary-text {
-    text-align: justify;
   }
   
   .show-card {
@@ -42,5 +35,40 @@
   .card-body {
     width: 80%;
     margin: 0 auto;
+  }
+  
+  .summary {
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+  .summary-text {
+    text-align: justify;
+  }
+  
+  /* Adjustments for mobile screens */
+  @media (max-width: 768px) {
+    .show-card img {
+      max-height: 300px;
+    }
+  
+    .show-detail-dabba {
+      margin: 20px auto;
+      padding: 20px;
+    }
+  
+    .col-md-6 {
+      flex: 1;
+      max-width: 100%;
+      padding: 0 5px;
+    }
+  
+    .show-card {
+      flex-direction: column;
+    }
+  
+    .show-card img {
+      max-height: 200px; /* Adjust as needed */
+    }
   }
   

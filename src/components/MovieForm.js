@@ -38,7 +38,7 @@ const MovieForm = () => {
 
     alert('Ticket booked successfully!');
   };
-
+  const defaultImageUrl = 'https://media.comicbook.com/files/img/default-movie.png';
   return (
     <div className="movie-form">
       {show && (
@@ -48,7 +48,7 @@ const MovieForm = () => {
           
           {/* Show Details */}
           <div className="show-details">
-            <img className="show-image" src={show.image.medium} alt={show.name} />
+            <img className="show-image" src={show.image && show.image.medium ? show.image.medium : defaultImageUrl} alt={show.name} />
             <p>Language: {show.language}</p>
             <p>Genres: {show.genres.join(', ')}</p>
             <p>Rating: {show.rating.average}</p>
