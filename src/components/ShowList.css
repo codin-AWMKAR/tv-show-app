@@ -6,83 +6,54 @@
   margin-bottom: 20px;
 }
 
-.card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.project-container {
+  max-width: 1140px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  padding-bottom: 5rem;
 }
 
-.card-title {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.card-text {
-  font-size: 1rem;
-  color: #555;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.show-list-container {
-  margin: 20px;
-  flex-direction: column;
-}
-
-/* Adjust card styles for smaller screens */
-.col-md-4 {
-  flex: 1;
-  max-width: 100%; /* Cards take full width on smaller screens */
-  margin-bottom: 20px;
-  display: none; /* Hide cards on smaller screens */
-}
-
-.col-md-4:first-child {
-  display: block; /* Display the first card on smaller screens */
-}
-
-/* Add media query for smaller screens */
-@media (min-width: 768px) {
-  .col-md-4 {
-    max-width: calc(33.33% - 20px);
-    display: block; /* Display cards on larger screens */
-  }
-}
-
-.card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.project-card {
+  background: #1a1919;
+  padding: 1.2rem 1rem;
   transition: transform 0.3s;
 }
 
-.card:hover {
+.project-card:hover {
   transform: scale(1.05);
 }
 
-.card-img-top {
-  height: 700px;
-  object-fit: cover;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+.project-card img {
+  width: 100%;
 }
 
-.card-body {
-  padding: 1rem;
+.project-title {
+  color: #fff;
+  padding: 1rem 0;
 }
 
-.card-title {
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
-}
-
-.card-text {
+.pro-details p {
+  padding-bottom: 1rem;
   font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  text-align: justify;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+.pro-btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.pro-btns .btn {
+  padding: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 740px) {
+  .project-container {
+    max-width: 90%;
+    margin: auto;
+    grid-template-columns: 1fr;
+  }
 }

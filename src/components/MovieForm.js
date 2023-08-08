@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import './MovieForm.css'; // Import your custom CSS for styling
-import { Form, Button } from 'react-bootstrap';
+import { useParams, Modal, Button, Form } from 'react-bootstrap';
 
-const MovieForm = () => {
-  const { showId } = useParams();
+const MovieForm = ({ showId, showModal, setShowModal }) => {
   const [show, setShow] = useState(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -37,61 +34,65 @@ const MovieForm = () => {
     setPhoneNumber('');
 
     alert('Ticket booked successfully!');
+    setShowModal(false);
   };
+
   const defaultImageUrl = 'https://media.comicbook.com/files/img/default-movie.png';
+
   return (
-    <div className="movie-form">
-      {show && (
-        <div>
-          {/* Form Header */}
-          <h2 className="form-header">Book a Ticket for {show.name}</h2>
-          
-          {/* Show Details */}
+    <Modal show={showModal} onHide={() => setShowModal(false)}>
+      <Modal.Header closeButton>
+        <Modal.Title>Book a Ticket for {show && show.name}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {show && (
           <div className="show-details">
-            <img className="show-image" src={show.image && show.image.medium ? show.image.medium : defaultImageUrl} alt={show.name} />
+            <img
+              className="show-image"
+              src={show.image && show.image.medium ? show.image.medium : defaultImageUrl}
+              alt={show.name}
+            />
             <p>Language: {show.language}</p>
             <p>Genres: {show.genres.join(', ')}</p>
             <p>Rating: {show.rating.average}</p>
           </div>
-          
-          {/* Booking Form */}
-          <Form onSubmit={handleFormSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>Name:</Form.Label>
-              <Form.Control
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Email:</Form.Label>
-              <Form.Control
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Phone Number:</Form.Label>
-              <Form.Control
-                type="tel"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Book Ticket
-            </Button>
-          </Form>
-        </div>
-      )}
-    </div>
+        )}
+
+        <Form onSubmit={handleFormSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Name:</Form.Label>
+            <Form.Control
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Phone Number:</Form.Label>
+            <Form.Control
+              type="tel"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Book Ticket
+          </Button>
+        </Form>
+      </Modal.Body>
+    </Modal>
   );
 };
 
 export default MovieForm;
-

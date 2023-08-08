@@ -20,9 +20,9 @@ const ShowList = () => {
   return (
     <div className="show-list-container">
       <h1 className="show-list-heading">Show List</h1>
-      <div className="row">
+      <div className="project-container">
         {shows.map(({ show }) => (
-          <div className="col-md-4 mb-4" key={show.id}>
+          <div className="project-card" key={show.id}>
             <Card>
               <Card.Img
                 variant="top"
@@ -30,13 +30,17 @@ const ShowList = () => {
                 alt={show.name}
               />
               <Card.Body>
-                <Card.Title>{show.name}</Card.Title>
-                <Card.Text>Language: {show.language}</Card.Text>
-                <Card.Text>Genres: {show.genres.join(', ')}</Card.Text>
-                <Card.Text>Rating: {show.rating.average}</Card.Text>
-                <Link to={`/details/${show.id}`}>
-                  <Button variant="primary">View Details</Button>
-                </Link>
+                <h2 className="project-title">{show.name}</h2>
+                <div className="pro-details">
+                  <p>Language: {show.language}</p>
+                  <p>Genres: {show.genres.join(', ')}</p>
+                  <p>Rating: {show.rating.average}</p>
+                </div>
+                <div className="pro-btns">
+                  <Link to={`/details/${show.id}`}>
+                    <Button variant="primary">View Details</Button>
+                  </Link>
+                </div>
               </Card.Body>
             </Card>
           </div>
@@ -45,5 +49,5 @@ const ShowList = () => {
     </div>
   );
 };
- 
+
 export default ShowList;
