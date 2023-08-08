@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Modal, Button, Form } from 'react-bootstrap';
+import {  Modal, Button, Form } from 'react-bootstrap';
 
 const MovieForm = ({ showId, showModal, setShowModal }) => {
   const [show, setShow] = useState(null);
